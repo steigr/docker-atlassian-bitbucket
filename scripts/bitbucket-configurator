@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+bitbucket_setup_log() {
+  printf '\e[1mSetup\e[0m \e[32m%s\e[0m\n' "$*"
+}
+
+bitbucket_setup_fail() {
+  bitbucket_setup_log "$@"; return 1
+}
+
+main() {
+  true
+}
+
+create_bitbucket_home() {
+  [[ -d "$BITBUCKET_HOME" ]] || install -D -d -m 0750 -o "$APPLICATION_USER" -g "$APPLICATION_USER" "$BITBUCKET_HOME"
+  chown -R "$APPLICATION_USER" "$BITBUCKET_HOME"
+}
+
+fix_permissions() {
+  chown "$APPLICATION_USER" "$CATALINA_HOME/work" "$CATALINA_HOME/logs" "/app/.oracle_jre_usage"
+  chmod 1777 /tmp
+}
+
+setenv_for_bitbucket() {
+  printf '#!sh\numask 0027\nexport BITBUCKET_HOME="%s"' "$BITBUCKET_HOME" | install -m 0755 /dev/stdin "$CATALINA_HOME/bin/set-bitbucket-home.sh"
+}
+
+if [[ "${BASH_SOURCE[0]}" = "$0" ]]; then
+  true
+else
+  fix_permissions
+  create_bitbucket_home
+  setenv_for_bitbucket
+
+  set -- JAVA_OPTS="$JAVA_OPTS" "$@"
+fi
