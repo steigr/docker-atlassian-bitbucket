@@ -1,0 +1,44 @@
+#!sh
+
+# Atlassian Confluence
+export BITBUCKET_HOME="${BITBUCKET_HOME:-/bitbucket}"
+export SERVER_ID="${SERVER_ID}"
+export LICENSE="${LICENSE}"
+
+# Timezone Configuration
+export TIMEZONE="${TIMEZONE:-UTC}"
+
+# Automatic Setup
+export AUTO_SETUP="${AUTO_SETUP:-true}"
+
+# Tomcat
+export CATALINA_HOME="${CATALINA_HOME:-/app}"
+export CATALINA_TMPDIR="${CATALINA_TMPDIR:-/tmp}"
+
+# # Single-Sign-On (Crowd SSO)
+
+# ## Path to properties-files
+# export CROWD_SSO_PROPERTIES_Confluence="${CROWD_SSO_PROPERTIES_Confluence:-$BITBUCKET_HOME/crowd.properties}"
+# export CROWD_SSO_SERAPH_Confluence="${CROWD_SSO_SERAPH_Confluence:-$CATALINA_HOME/confluence/WEB-INF/classes/seraph-config.xml}"
+
+# # Available Authenticators
+# # - name: com.atlassian.jira.security.login.JiraSeraphAuthenticator
+# #   description: Default Confluence authenticator, which uses the configured user management for authentication.
+# # - name: com.atlassian.confluence.user.ConfluenceCrowdSSOAuthenticator
+# #   description: Authenticator with support for Crowd single-sign on (SSO).
+# # - name: com.atlassian.confluence.user.ConfluenceGroupJoiningAuthenticator
+# #   description: Specialised version of the default authenticator which adds authenticated users to confluence-users if they aren't already a member.
+
+# export CROWD_SSO_SERAPH_CLASS="${CROWD_SSO_SERAPH_CLASS:-com.atlassian.confluence.user.ConfluenceAuthenticator}"
+
+# # crowd sso
+# export CROWD_SSO_APP_Confluence_SESSION_LASTVALIDATION="${CROWD_SSO_APP_Confluence_SESSION_LASTVALIDATION:-session.lastvalidation}"
+# export CROWD_SSO_APP_Confluence_SESSION_TOKENKEY="${CROWD_SSO_APP_Confluence_SESSION_LASTVALIDATION:-session.tokenkey}"
+# export CROWD_SSO_APP_Confluence_CROWD_SERVER_URL="${CROWD_SSO_APP_Confluence_CROWD_SERVER_URL:-http://localhost:8095/crowd/services/}"
+# export CROWD_SSO_APP_Confluence_APPLICATION_NAME="${CROWD_SSO_APP_Confluence_APPLICATION_NAME:-crowd}"
+# export CROWD_SSO_APP_Confluence_HTTP_TIMEOUT="${CROWD_SSO_APP_Confluence_HTTP_TIMEOUT:-30000}"
+# export CROWD_SSO_APP_Confluence_SESSION_ISAUTHENTICATED="${CROWD_SSO_APP_Confluence_SESSION_ISAUTHENTICATED:-session.isauthenticated}"
+# export CROWD_SSO_APP_Confluence_APPLICATION_LOGIN_URL="${CROWD_SSO_APP_Confluence_APPLICATION_LOGIN_URL:-http://localhost:8095/crowd}"
+# export CROWD_SSO_APP_Confluence_APPLICATION_BASE_URL="${CROWD_SSO_APP_Confluence_APPLICATION_BASE_URL:-http://localhost:8095/crowd}"
+# export CROWD_SSO_APP_Confluence_SESSION_VALIDATIONINTERVAL="${CROWD_SSO_APP_Confluence_SESSION_VALIDATIONINTERVAL:-0}"
+# export CROWD_SSO_APP_Confluence_APPLICATION_PASSWORD="${CROWD_SSO_APP_Confluence_APPLICATION_PASSWORD:-password}"
